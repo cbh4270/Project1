@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>
+        Career Search
+    </title>
+
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="./assets/css/style.css">
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="./assets/javascript/app.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+    <!-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script> -->
+    <script src="https://d3js.org/d3.v4.min.js"></script>
+    <script src="./assets/javascript/app.js"></script>
+
+</head>
+
+<header>
+    <div id="invite">
+        <!-- ><h2>In My Location</h2><h2>Search</h2> -->
+        <h2>Hire Development....Commencing Search...<span>|</span></h2>
+    </div>
+
+
+    <!-- <topping><b><h2>Job Search</h2></b></topping> -->
+
+</header>
+
+<body>
+
+    <div class="bkground">
+
+        <img src="assets/images/hireme_logo.PNG" alt="logo" class="logo">
+
+        <div class="container" style="text-align: center;">
+
+            <div id="intro">
+
+                <button id="myBtn">Let's Get Started!!</button>
+
+    
+            </div>
+            <div id="userGreeting"> </div>
+
+        <div class="dropdown">
+
+            <button class="dropbtn">Resources</button>
+            <div class="dropdown-content">
+                <h6><a href="https://www.myskillsmyfuture.org/" target="_blank">Career Skillset</a></h6>
+                <h6><a href="https://www.bls.gov/oes/current/oes_fl.htm" target="_blank">Employement Statistics</a></h6>
+                <h6><a href="https://resumegenius.com/resume-samples/web-developer-resume-example" target="_blank">Resume </a></h6>
+                <h6><a href="https://www.byte-by-byte.com/dress-for-a-coding-interview/" target="_blank">Top Interview Questions for Developers</a></h6>
+                <h6><a href="https://www.byte-by-byte.com/dress-for-a-coding-interview/" target="_blank">Interview Dress Code</a></h6>
+            </div>
+
+        </div>
+
+        <div class="dropdown">
+
+            <button class="dropbtn">Training</button>
+            <div class="dropdown-content">
+                <h6><a href="https://www.switchup.org/rankings/best-coding-bootcamps" target="_blank">Bootcamps</a></h6>
+                <h6><a href="https://www.w3schools.com/" target="_blank">W3 Schools</a></h6>
+                <h6><a href="https://www.rithmschool.com/courses" target="_blank">Rithm School</a></h6>
+            </div>
+
+        </div>
+
+
+       
+
+    </div>
+    <!--ends container-->
+
+    </div>
+
+
+
+    <div id="newsResults"></div>
+
+
+    <!-- Modal -->
+
+
+    <div id="myModal" class="modal">
+
+
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h1>Login</h1>
+
+            <div class="modal-body">
+
+                <div class="input-group-prepend">
+                    <input id="userName" type="text" placeholder="Full Name">
+                </div>
+                <br>
+
+                <div class="input-group-prepend">
+                    <input type="text" placeholder="Email">
+                </div>
+            </div>
+            <!--Ends modal-body-->
+            <br>
+            <br>
+            <button id='options1'>Continue</button>
+
+        </div>
+        <!--Ends modal-content-->
+
+    </div>
+    <!--Ends myModal-->
+
+
+    <!------------------------------------------------------------------------------------------------>
+
+
+    <!--Input Field -->
+
+    <div class="row" id="search" class="clearfix">
+
+        <div class="col-3" id="searchcolumn">
+            <!-- Form -->
+            <form class="text-center border border-light p-5" action="#!">
+                <!--Description-->
+                <p class="h4 mb-4">Job Description</p>
+                <div class="row">
+                    <input type="text" id="searchFormSkill" class="form-control mb-4" placeholder="Filter by title, benefits, skills" />
+                </div>
+
+                <!-- Location -->
+                <p class="h4 mb-4">Location</p>
+                <div class="row">
+                    <input type="text" id="searchFormLocation" class="form-control mb-4" placeholder="Filter by city, state, zip code" />
+                </div>
+
+                <div class="row">
+                    <!-- Kind of Position -->
+                    <label>Position type</label>
+                    <select class="browser-default custom-select mb-4" id="searchFormPosition">
+                        <option value="" disabled>Choose option</option>
+                        <option selected>Full Time</option>
+                        <option>Part Time</option>
+                    </select>
+                </div>
+                <div class="row">
+                    <!-- Copy -->
+                    <div class="custom-control custom-checkbox mb-4">
+                        <input type="checkbox" class="custom-control-input" id="searchFormCopy" />
+                        <label class="custom-control-label" for="searchFormCopy">Email me results</label>
+                    </div>
+                </div>
+
+
+                <div class="row">
+                    <!-- Send button -->
+                    <button class="btn btn-info btn-block" id="search-btn" type="submit"> Find jobs
+              </button>
+                </div>
+            </form>
+        </div>
+
+        <div class="col-6 displaycards">
+            <!-- display job cards through jquery -->
+        </div>
+        <div class="col-3" id="displaywageinfo">
+            <form class="text-center border border-light p-5" action="#!">
+
+                <div class="row">
+                    <!-- Kind of Position -->
+                    <label>Position type</label>
+                    <select class="browser-default custom-select mb-4" id="search-position-wage">
+                        <option value="" disabled>Choose option</option>
+                        <option value="15-1121.00" selected>Computer Systems Analysts</option>      
+                        <option value="15-1131.00" >Computer Programmers</option>
+                        <option value="15-1142.00" >Network and Computer Systems Administrators</option>
+                        <option value="15-1111.00" >Computer and Information Research Scientists</option> 
+                        <option value="15-2061.00" >Computer Hardware Engineers</option>
+                        <option value="15-1143.00" >Computer Network Architects</option>
+                        <option value="15-1199.00" >Computer Systems Engineers/Architects</option> 
+                        <option value="15-1122.00" >Information Security Analysts</option> 
+                        <option value="15-1141.00" >Database Administrators</option> 
+                        <option value="15-9031.00" >Desktop Publishers</option>
+                        <option value="15-1132.00" >Software Developers, Applications</option> 
+                        <option value="15-1134.00" >Web Developers </option>
+                        <option value="15-1133.00" >Software Developers, Systems Software</option>
+                    </select>
+                </div>
+
+                <!-- Location -->
+                <label>Location</label>
+                <div class="row">
+                    <input type="text" id="search-region-wage" class="form-control mb-4" placeholder="Filter by State (eg VA)" />
+                </div>
+
+                <div class="row">
+                    <!-- Send button -->
+                    <button class="btn btn-info btn-block" id="wages-search-btn" type="submit">Salary Information</button>
+                </div>
+            </form>
+            <svg></svg>
+        </div>
+    </div>
+    </div>
+
+
+
+</body>
+
+
+</html>
